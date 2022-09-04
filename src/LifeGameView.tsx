@@ -38,14 +38,12 @@ const LifeGameView = (props: LifeGameViewProps) => {
 
       <table class={styles.gameGrid}>
         <tbody>
-          {cells().map((rows, i) => {
+          {cells().map((rows) => {
             return (
               <tr>
-                {rows.map((cell, j) => {
+                {rows.map((cell) => {
                   return (
                     <td
-                      id={`cell-${i}-${j}`}
-                      data-state={cell.status}
                       class={
                         cell.status === CellStatus.Live
                           ? styles.live
