@@ -1,0 +1,35 @@
+.controls {
+  margin: 20px 0;
+}
+.controls button {
+  margin: 0 5px;
+  padding: 3px 5px;
+}
+
+.controls input {
+  margin-left: 20px;
+  padding: 3px 5px;
+}
+
+.gameGrid {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td {
+  border: 1px solid #ddd;
+  width: 10px;
+  height: 10px;
+}
+
+.dead {
+  background-color: white;
+}
+
+.live {
+  background-color: green;
+}
+
+.poetry {
+  margin-top: 20px;
+}
