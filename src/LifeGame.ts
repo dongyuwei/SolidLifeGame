@@ -1,16 +1,11 @@
-export enum CellStatus {
-  Dead = 0,
-  Live = 1,
-}
-
 export type Grid = Cell[][];
 
 class Cell {
-  status: CellStatus;
+  status: 0 | 1; // 0 dead, 1 live
   row: number;
   column: number;
 
-  constructor(status: CellStatus, row: number, column: number) {
+  constructor(status: 0 | 1, row: number, column: number) {
     this.status = status;
     this.row = row;
     this.column = column;
@@ -22,13 +17,13 @@ class Cell {
     // - Any dead cell with three live neighbours becomes a live cell.
     // - All other live cells die in the next generation. Similarly, all other dead cells stay dead.
 
-    if (this.status === CellStatus.Live) {
+    if (this.status === 1) {
       if (!(liveNeighbours === 2 || liveNeighbours === 3)) {
-        this.status = CellStatus.Dead;
+        this.status = 0;
       }
     } else {
       if (liveNeighbours === 3) {
-        this.status = CellStatus.Live;
+        this.status = 1;
       }
     }
   }
@@ -49,7 +44,7 @@ class LifeGame {
   }
 
   initWithDeadCells() {
-    return initGrid(this.rows, this.columns, this.grid, CellStatus.Dead);
+    return initGrid(this.rows, this.columns, this.grid, 0);
   }
 
   iterate(): Grid {
@@ -71,7 +66,7 @@ class LifeGame {
     return nextGrid;
   }
 
-  getAliveNeighbors(grid: Grid, x: number, y: number, status: CellStatus) {
+  getAliveNeighbors(grid: Grid, x: number, y: number, status: 0 | 1) {
     let lives = 0;
     for (var i = -1; i <= 1; i++) {
       for (var j = -1; j <= 1; j++) {
@@ -88,12 +83,12 @@ function initGrid(
   rows: number,
   columns: number,
   grid: Grid,
-  initStatus?: CellStatus
+  initStatus?: 0 | 1
 ) {
   for (var i = 0; i < rows; i++) {
     grid[i] = grid[i] || [];
     for (var j = 0; j < columns; j++) {
-      const state = initStatus === CellStatus.Dead ? initStatus : random0or1();
+      const state = initStatus === 0 ? initStatus : random0or1();
       grid[i][j] = new Cell(state, i, j);
     }
   }

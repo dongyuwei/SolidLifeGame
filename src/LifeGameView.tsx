@@ -1,5 +1,5 @@
 import { createSignal } from 'solid-js';
-import LifeGame, { CellStatus, Grid } from './LifeGame';
+import LifeGame, { Grid } from './LifeGame';
 import styles from './LifeGameView.module.css';
 
 interface LifeGameViewProps {
@@ -43,13 +43,7 @@ const LifeGameView = (props: LifeGameViewProps) => {
               <tr>
                 {rows.map((cell) => {
                   return (
-                    <td
-                      class={
-                        cell.status === CellStatus.Live
-                          ? styles.live
-                          : styles.dead
-                      }
-                    />
+                    <td class={cell.status === 1 ? styles.live : styles.dead} />
                   );
                 })}
               </tr>
