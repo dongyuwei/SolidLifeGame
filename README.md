@@ -2,7 +2,7 @@
 
 Port the [js version Life Game](https://github.com/dongyuwei/life-game) to Solid and TS.
 
-CPU usage is 50%, still not as good as the row DOM and js version, but better than the React version.
+CPU usage is 50%, still not as good as the vanilla DOM and js version, but better than the React version.
 
 SolidJS 版康威生命游戏 CPU 占用大约在 50%左右，比之前 React 版本性能好一些（几年前是用react@^16.8.6测试。React 18 测试下来与Sodlid版性能相差无几），但是依然没有原生 DOM 版本性能高。代码可读性好一点，也比 React 版本更简洁。
 
